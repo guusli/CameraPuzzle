@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoPuzzleAppDelegate : NSObject <UIApplicationDelegate> {
+@class PuzzleController;
 
+@interface PhotoPuzzleAppDelegate : NSObject <UIApplicationDelegate> 
+{
+    UIWindow *window;
+    PuzzleController *puzzleController;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) PuzzleController *puzzleController;
 
 @end

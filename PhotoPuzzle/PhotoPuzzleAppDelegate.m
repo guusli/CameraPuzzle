@@ -7,15 +7,24 @@
 //
 
 #import "PhotoPuzzleAppDelegate.h"
+#import "PuzzleController.h"
+#import "PuzzleTableController.m"
 
 @implementation PhotoPuzzleAppDelegate
 
 
-@synthesize window=_window;
+@synthesize window;
+@synthesize puzzleController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //puzzleTableController = [[PuzzleTableController alloc] init];
+    
+    //[window setRootViewController:puzzleTableController];
+    
+//    puzzleController = [[PuzzleController alloc] init];
+//    [window addSubview:puzzleController.view];
+                        
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -61,7 +70,7 @@
 
 - (void)dealloc
 {
-    [_window release];
+    [window release];
     [super dealloc];
 }
 
