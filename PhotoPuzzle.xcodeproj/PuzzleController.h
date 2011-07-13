@@ -31,7 +31,7 @@
 @property (nonatomic, retain) NSMutableArray *tiles;
 @property (nonatomic, retain) Tile *toBeMoved;
 
--(void) initPuzzle:(NSString *) imagePath;
+-(void) initPuzzle:(UIImage *) imagePath;
 -(void) swapTile:(Tile *) tile1 withTile:(Tile *) tile2 withAnimation:(BOOL) animate;
 -(void) shuffle;
 

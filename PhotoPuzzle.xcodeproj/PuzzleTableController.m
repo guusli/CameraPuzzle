@@ -9,6 +9,9 @@
 #import "PuzzleTableController.h"
 #import "Puzzle.h"
 #import "NewPuzzleController.h"
+#import "PuzzleItemCell.h"
+#import "PuzzleController.h"
+#import "ImageCache.h"
 
 
 @implementation PuzzleTableController
@@ -18,12 +21,10 @@
     [super initWithStyle:UITableViewStyleGrouped];
     
     puzzles = [[NSMutableArray alloc] init];
-    for (int i=0; i<5; i++) {
-        [puzzles addObject:[Puzzle dummyPuzzle]];
-    }
     
     [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
     
+    [puzzles addObject:[Puzzle dummyPuzzle]];
     UIBarButtonItem *newPuzzleBarButtonItem = [[UIBarButtonItem alloc]
                                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newPuzzle:)];
     
@@ -70,6 +71,13 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+//    if ([puzzles count] > 0 && ([[puzzles objectAtIndex:[puzzles count] -1] bestScore] < 0  
+//            || [[puzzles objectAtIndex:[puzzles count] -1] imageKey] == nil))
+//    {
+//        [puzzles removeObjectAtIndex:[puzzles count]-1];
+//    }
+    [[self tableView] reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -109,13 +117,18 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    PuzzleItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[PuzzleItemCell alloc]
+                    initWithStyle:UITableViewCellStyleDefault 
+                 reuseIdentifier:CellIdentifier] autorelease];
+        
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     Puzzle *p = [puzzles objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:[p puzzleName]];
+    //[[cell textLabel] setText:[p puzzleName]];
+    [cell setPuzzle:p];
     
     return cell;
 }
@@ -163,14 +176,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    Puzzle *p = [puzzles objectAtIndex:[indexPath row]];
+//    UIImage *image = [[ImageCache sharedImageCache] imageForKey:[p imageKey]];
+    puzzleController = [PuzzleController alloc];
+    //UIImage *image = [UIImage imageNamed:@"winnipeg.png"];
+    [puzzleController initPuzzle:[p image]];
+    
+    [[self navigationController] pushViewController:puzzleController animated:YES];
 }
 
 - (void) newPuzzle:(id)sender
@@ -179,7 +191,13 @@
         newPuzzleController = [[NewPuzzleController alloc] init];
     }
     
+    [puzzles addObject:[Puzzle dummyPuzzle]];
+    [[puzzles objectAtIndex:[puzzles count]-1] setPuzzleName:@"Bajs"];
+    [newPuzzleController setNewPuzzle:[puzzles objectAtIndex:[puzzles count]-1]];
+    
     [[self navigationController] pushViewController:newPuzzleController animated:YES];
 }
+
+
 
 @end

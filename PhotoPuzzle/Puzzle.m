@@ -11,16 +11,21 @@
 
 @implementation Puzzle
 
-@synthesize puzzleName, imageKey;
+@synthesize puzzleName, imageKey, bestScore, image;
 
 + (id) dummyPuzzle
 {
-    Puzzle *newPuzzle = [[self alloc] initWithPuzzleName:@"Puzzle" imageKey:@""];
+    Puzzle *newPuzzle = [[self alloc] initWithPuzzleName:@"Puzzle"];
     
     return newPuzzle;
 }
 
-- (id) initWithPuzzleName:(NSString *)name imageKey:(NSString *)key
+- (id) init
+{
+    return [self initWithPuzzleName:@""];
+}
+
+- (id) initWithPuzzleName:(NSString *)name
 {
     [super init];
     
@@ -29,9 +34,83 @@
     }
     
     [self setPuzzleName:name];
-    [self setImageKey:key];
+    bestScore = -1;
     
     return self;
+}
+
+- (void) dealloc
+{
+    [thumbnail release];
+    [thumbnailData release];
+    [puzzleName release];
+    [imageKey release];
+    
+    [super dealloc];
+}
+
+- (void)setThumbnailDataFromImage:(UIImage *)image
+{
+    [thumbnailData release];
+    [thumbnail release];
+    
+    CGRect imageRect = CGRectMake(0, 0, 70, 70);
+    UIGraphicsBeginImageContext(imageRect.size);
+    
+    [image drawInRect:imageRect];
+    
+    thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+    [thumbnail retain];
+    
+    UIGraphicsEndImageContext();
+    
+    thumbnailData = UIImageJPEGRepresentation(thumbnail, 0.5);
+    
+    [thumbnailData retain];
+}
+
+- (void) setImageData:(UIImage *)image
+{
+    [image release];
+    
+    CGRect imageRect = CGRectMake(0, 0, 312, 408);
+    UIGraphicsBeginImageContext(imageRect.size);
+    
+    [image drawInRect:imageRect];
+    
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    [image retain];
+    
+    UIGraphicsEndImageContext();
+    
+    imageData = UIImagePNGRepresentation(image);
+    [imageData retain];
+}
+
+// getter method
+- (UIImage *)thumbnail
+{
+    if (!thumbnailData) {
+        return nil;
+    }
+    
+    if (!thumbnail) {
+        thumbnail = [[UIImage imageWithData:thumbnailData] retain];
+    }
+    
+    return  thumbnail;
+}
+
+- (UIImage *) image
+{
+    if (!imageData) {
+        return nil;
+    }
+    if (!image) {
+        image = [[UIImage imageWithData:imageData] retain];
+    }
+    
+    return image;
 }
 
 @end

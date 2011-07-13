@@ -12,6 +12,7 @@
 		6F3B3E3413CDFBBB004DBDCD /* NewPuzzleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B3E3213CDFBBA004DBDCD /* NewPuzzleController.m */; };
 		6F3B3E3513CDFBBB004DBDCD /* NewPuzzleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3B3E3313CDFBBA004DBDCD /* NewPuzzleController.xib */; };
 		6F3B3E4013CE00CE004DBDCD /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B3E3F13CE00CE004DBDCD /* ImageCache.m */; };
+		6FB3F31313CE316A00D36E38 /* PuzzleItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB3F31213CE316A00D36E38 /* PuzzleItemCell.m */; };
 		6FD47E3213CDA75600E06C6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3113CDA75600E06C6E /* UIKit.framework */; };
 		6FD47E3413CDA75600E06C6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3313CDA75600E06C6E /* Foundation.framework */; };
 		6FD47E3613CDA75600E06C6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3513CDA75600E06C6E /* CoreGraphics.framework */; };
@@ -50,6 +51,8 @@
 		6F3B3E3313CDFBBA004DBDCD /* NewPuzzleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPuzzleController.xib; sourceTree = "<group>"; };
 		6F3B3E3E13CE00CE004DBDCD /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = ../ImageCache.h; sourceTree = "<group>"; };
 		6F3B3E3F13CE00CE004DBDCD /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = ../ImageCache.m; sourceTree = "<group>"; };
+		6FB3F31113CE316A00D36E38 /* PuzzleItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleItemCell.h; path = ../PuzzleItemCell.h; sourceTree = "<group>"; };
+		6FB3F31213CE316A00D36E38 /* PuzzleItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PuzzleItemCell.m; path = ../PuzzleItemCell.m; sourceTree = "<group>"; };
 		6FD47E2D13CDA75600E06C6E /* PhotoPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD47E3113CDA75600E06C6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FD47E3313CDA75600E06C6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +150,8 @@
 				6FD47E4013CDA75700E06C6E /* PhotoPuzzleAppDelegate.h */,
 				6FD47E4113CDA75700E06C6E /* PhotoPuzzleAppDelegate.m */,
 				6FD47E4313CDA75700E06C6E /* MainWindow.xib */,
+				6FB3F31113CE316A00D36E38 /* PuzzleItemCell.h */,
+				6FB3F31213CE316A00D36E38 /* PuzzleItemCell.m */,
 				6FD47E3813CDA75600E06C6E /* Supporting Files */,
 			);
 			path = PhotoPuzzle;
@@ -297,6 +302,7 @@
 				6F3B3E3013CDF8F1004DBDCD /* Puzzle.m in Sources */,
 				6F3B3E3413CDFBBB004DBDCD /* NewPuzzleController.m in Sources */,
 				6F3B3E4013CE00CE004DBDCD /* ImageCache.m in Sources */,
+				6FB3F31313CE316A00D36E38 /* PuzzleItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class NewPuzzleController;
+@class NewPuzzleController, Puzzle, PuzzleController;
 
 @interface PuzzleTableController : UITableViewController 
 {
     NSMutableArray *puzzles;
-    
     NewPuzzleController *newPuzzleController;
+    PuzzleController *puzzleController;
 }
 
 @end

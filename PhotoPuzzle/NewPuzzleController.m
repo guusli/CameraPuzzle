@@ -7,9 +7,11 @@
 //
 
 #import "NewPuzzleController.h"
-
+#import "Puzzle.h"
 
 @implementation NewPuzzleController
+
+@synthesize newPuzzle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -90,11 +92,35 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    // Skapa unik nyckel
+    CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
+    CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    [newPuzzle setImageKey:(NSString *) newUniqueIDString];
+    
+    CFRelease(newUniqueID);
+    CFRelease(newUniqueIDString);
     
     [imageView setImage:image];
     
+    [newPuzzle setThumbnailDataFromImage:image];
+    [newPuzzle setImageData:image];
+    
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction) savePuzzle
+{
+    [newPuzzle setPuzzleName:[nameField text]];
+    [newPuzzle setBestScore:0];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [theTextField resignFirstResponder];
+    return YES;
 }
 
 @end

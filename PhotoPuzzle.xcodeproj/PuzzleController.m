@@ -54,7 +54,7 @@
 	
 	self.tiles = [[NSMutableArray alloc] init];
 	
-	[self initPuzzle:@"winnipeg.png"];
+	//[self initPuzzle:@"winnipeg.png"];
 }
 
 
@@ -71,10 +71,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void) initPuzzle:(NSString *)imagePath
+- (void) initPuzzle:(UIImage *)imagePath
 {
-    UIImage *originalImage = [UIImage imageNamed:imagePath];
+    //UIImage *originalImage = [UIImage imageNamed:@"winnipeg.png"];
     
+    UIImage *originalImage = imagePath;
     [[self tiles] removeAllObjects];
     
     tileWidth = originalImage.size.width / NUM_HORIZONTAL_PIECES;
