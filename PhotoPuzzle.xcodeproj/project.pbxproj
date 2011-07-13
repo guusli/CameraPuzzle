@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6FD47E3213CDA75600E06C6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3113CDA75600E06C6E /* UIKit.framework */; };
+		6FD47E3413CDA75600E06C6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3313CDA75600E06C6E /* Foundation.framework */; };
+		6FD47E3613CDA75600E06C6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3513CDA75600E06C6E /* CoreGraphics.framework */; };
+		6FD47E3C13CDA75600E06C6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FD47E3A13CDA75600E06C6E /* InfoPlist.strings */; };
+		6FD47E3F13CDA75600E06C6E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD47E3E13CDA75600E06C6E /* main.m */; };
+		6FD47E4213CDA75700E06C6E /* PhotoPuzzleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD47E4113CDA75700E06C6E /* PhotoPuzzleAppDelegate.m */; };
+		6FD47E4513CDA75700E06C6E /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FD47E4313CDA75700E06C6E /* MainWindow.xib */; };
+		6FD47E4C13CDA75700E06C6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3113CDA75600E06C6E /* UIKit.framework */; };
+		6FD47E4D13CDA75700E06C6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3313CDA75600E06C6E /* Foundation.framework */; };
+		6FD47E4E13CDA75700E06C6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3513CDA75600E06C6E /* CoreGraphics.framework */; };
+		6FD47E5613CDA75700E06C6E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FD47E5413CDA75700E06C6E /* InfoPlist.strings */; };
+		6FD47E5913CDA75700E06C6E /* PhotoPuzzleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 6FD47E5813CDA75700E06C6E /* PhotoPuzzleTests.h */; };
+		6FD47E5B13CDA75700E06C6E /* PhotoPuzzleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD47E5A13CDA75700E06C6E /* PhotoPuzzleTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6FD47E4F13CDA75700E06C6E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6FD47E2413CDA75600E06C6E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6FD47E2C13CDA75600E06C6E;
+			remoteInfo = PhotoPuzzle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6FD47E2D13CDA75600E06C6E /* PhotoPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FD47E3113CDA75600E06C6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6FD47E3313CDA75600E06C6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6FD47E3513CDA75600E06C6E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6FD47E3913CDA75600E06C6E /* PhotoPuzzle-Info.plist */ = {isa = PBXFileReference; path = "PhotoPuzzle-Info.plist"; sourceTree = "<group>"; };
+		6FD47E3B13CDA75600E06C6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6FD47E3D13CDA75600E06C6E /* PhotoPuzzle-Prefix.pch */ = {isa = PBXFileReference; path = "PhotoPuzzle-Prefix.pch"; sourceTree = "<group>"; };
+		6FD47E3E13CDA75600E06C6E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6FD47E4013CDA75700E06C6E /* PhotoPuzzleAppDelegate.h */ = {isa = PBXFileReference; path = PhotoPuzzleAppDelegate.h; sourceTree = "<group>"; };
+		6FD47E4113CDA75700E06C6E /* PhotoPuzzleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPuzzleAppDelegate.m; sourceTree = "<group>"; };
+		6FD47E4413CDA75700E06C6E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		6FD47E4B13CDA75700E06C6E /* PhotoPuzzleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPuzzleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FD47E5313CDA75700E06C6E /* PhotoPuzzleTests-Info.plist */ = {isa = PBXFileReference; path = "PhotoPuzzleTests-Info.plist"; sourceTree = "<group>"; };
+		6FD47E5513CDA75700E06C6E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6FD47E5713CDA75700E06C6E /* PhotoPuzzleTests-Prefix.pch */ = {isa = PBXFileReference; path = "PhotoPuzzleTests-Prefix.pch"; sourceTree = "<group>"; };
+		6FD47E5813CDA75700E06C6E /* PhotoPuzzleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoPuzzleTests.h; sourceTree = "<group>"; };
+		6FD47E5A13CDA75700E06C6E /* PhotoPuzzleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoPuzzleTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6FD47E2A13CDA75600E06C6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD47E3213CDA75600E06C6E /* UIKit.framework in Frameworks */,
+				6FD47E3413CDA75600E06C6E /* Foundation.framework in Frameworks */,
+				6FD47E3613CDA75600E06C6E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FD47E4713CDA75700E06C6E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD47E4C13CDA75700E06C6E /* UIKit.framework in Frameworks */,
+				6FD47E4D13CDA75700E06C6E /* Foundation.framework in Frameworks */,
+				6FD47E4E13CDA75700E06C6E /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6FD47E2213CDA75600E06C6E = {
+			isa = PBXGroup;
+			children = (
+				6FD47E3713CDA75600E06C6E /* PhotoPuzzle */,
+				6FD47E5113CDA75700E06C6E /* PhotoPuzzleTests */,
+				6FD47E3013CDA75600E06C6E /* Frameworks */,
+				6FD47E2E13CDA75600E06C6E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6FD47E2E13CDA75600E06C6E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6FD47E2D13CDA75600E06C6E /* PhotoPuzzle.app */,
+				6FD47E4B13CDA75700E06C6E /* PhotoPuzzleTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6FD47E3013CDA75600E06C6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FD47E3113CDA75600E06C6E /* UIKit.framework */,
+				6FD47E3313CDA75600E06C6E /* Foundation.framework */,
+				6FD47E3513CDA75600E06C6E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6FD47E3713CDA75600E06C6E /* PhotoPuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				6FD47E4013CDA75700E06C6E /* PhotoPuzzleAppDelegate.h */,
+				6FD47E4113CDA75700E06C6E /* PhotoPuzzleAppDelegate.m */,
+				6FD47E4313CDA75700E06C6E /* MainWindow.xib */,
+				6FD47E3813CDA75600E06C6E /* Supporting Files */,
+			);
+			path = PhotoPuzzle;
+			sourceTree = "<group>";
+		};
+		6FD47E3813CDA75600E06C6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6FD47E3913CDA75600E06C6E /* PhotoPuzzle-Info.plist */,
+				6FD47E3A13CDA75600E06C6E /* InfoPlist.strings */,
+				6FD47E3D13CDA75600E06C6E /* PhotoPuzzle-Prefix.pch */,
+				6FD47E3E13CDA75600E06C6E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FD47E5113CDA75700E06C6E /* PhotoPuzzleTests */ = {
+			isa = PBXGroup;
+			children = (
+				6FD47E5813CDA75700E06C6E /* PhotoPuzzleTests.h */,
+				6FD47E5A13CDA75700E06C6E /* PhotoPuzzleTests.m */,
+				6FD47E5213CDA75700E06C6E /* Supporting Files */,
+			);
+			path = PhotoPuzzleTests;
+			sourceTree = "<group>";
+		};
+		6FD47E5213CDA75700E06C6E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6FD47E5313CDA75700E06C6E /* PhotoPuzzleTests-Info.plist */,
+				6FD47E5413CDA75700E06C6E /* InfoPlist.strings */,
+				6FD47E5713CDA75700E06C6E /* PhotoPuzzleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6FD47E2C13CDA75600E06C6E /* PhotoPuzzle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FD47E5E13CDA75700E06C6E /* Build configuration list for PBXNativeTarget "PhotoPuzzle" */;
+			buildPhases = (
+				6FD47E2913CDA75600E06C6E /* Sources */,
+				6FD47E2A13CDA75600E06C6E /* Frameworks */,
+				6FD47E2B13CDA75600E06C6E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoPuzzle;
+			productName = PhotoPuzzle;
+			productReference = 6FD47E2D13CDA75600E06C6E /* PhotoPuzzle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6FD47E4A13CDA75700E06C6E /* PhotoPuzzleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6FD47E6113CDA75700E06C6E /* Build configuration list for PBXNativeTarget "PhotoPuzzleTests" */;
+			buildPhases = (
+				6FD47E4613CDA75700E06C6E /* Sources */,
+				6FD47E4713CDA75700E06C6E /* Frameworks */,
+				6FD47E4813CDA75700E06C6E /* Resources */,
+				6FD47E4913CDA75700E06C6E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6FD47E5013CDA75700E06C6E /* PBXTargetDependency */,
+			);
+			name = PhotoPuzzleTests;
+			productName = PhotoPuzzleTests;
+			productReference = 6FD47E4B13CDA75700E06C6E /* PhotoPuzzleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6FD47E2413CDA75600E06C6E /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 6FD47E2713CDA75600E06C6E /* Build configuration list for PBXProject "PhotoPuzzle" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6FD47E2213CDA75600E06C6E;
+			productRefGroup = 6FD47E2E13CDA75600E06C6E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6FD47E2C13CDA75600E06C6E /* PhotoPuzzle */,
+				6FD47E4A13CDA75700E06C6E /* PhotoPuzzleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6FD47E2B13CDA75600E06C6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD47E3C13CDA75600E06C6E /* InfoPlist.strings in Resources */,
+				6FD47E4513CDA75700E06C6E /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FD47E4813CDA75700E06C6E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD47E5613CDA75700E06C6E /* InfoPlist.strings in Resources */,
+				6FD47E5913CDA75700E06C6E /* PhotoPuzzleTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6FD47E4913CDA75700E06C6E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6FD47E2913CDA75600E06C6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD47E3F13CDA75600E06C6E /* main.m in Sources */,
+				6FD47E4213CDA75700E06C6E /* PhotoPuzzleAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FD47E4613CDA75700E06C6E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD47E5B13CDA75700E06C6E /* PhotoPuzzleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6FD47E5013CDA75700E06C6E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6FD47E2C13CDA75600E06C6E /* PhotoPuzzle */;
+			targetProxy = 6FD47E4F13CDA75700E06C6E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6FD47E3A13CDA75600E06C6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD47E3B13CDA75600E06C6E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6FD47E4313CDA75700E06C6E /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD47E4413CDA75700E06C6E /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		6FD47E5413CDA75700E06C6E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6FD47E5513CDA75700E06C6E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6FD47E5C13CDA75700E06C6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6FD47E5D13CDA75700E06C6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		6FD47E5F13CDA75700E06C6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoPuzzle/PhotoPuzzle-Prefix.pch";
+				INFOPLIST_FILE = "PhotoPuzzle/PhotoPuzzle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6FD47E6013CDA75700E06C6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoPuzzle/PhotoPuzzle-Prefix.pch";
+				INFOPLIST_FILE = "PhotoPuzzle/PhotoPuzzle-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6FD47E6213CDA75700E06C6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoPuzzle.app/PhotoPuzzle";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoPuzzleTests/PhotoPuzzleTests-Prefix.pch";
+				INFOPLIST_FILE = "PhotoPuzzleTests/PhotoPuzzleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		6FD47E6313CDA75700E06C6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PhotoPuzzle.app/PhotoPuzzle";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PhotoPuzzleTests/PhotoPuzzleTests-Prefix.pch";
+				INFOPLIST_FILE = "PhotoPuzzleTests/PhotoPuzzleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6FD47E2713CDA75600E06C6E /* Build configuration list for PBXProject "PhotoPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FD47E5C13CDA75700E06C6E /* Debug */,
+				6FD47E5D13CDA75700E06C6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6FD47E5E13CDA75700E06C6E /* Build configuration list for PBXNativeTarget "PhotoPuzzle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FD47E5F13CDA75700E06C6E /* Debug */,
+				6FD47E6013CDA75700E06C6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6FD47E6113CDA75700E06C6E /* Build configuration list for PBXNativeTarget "PhotoPuzzleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6FD47E6213CDA75700E06C6E /* Debug */,
+				6FD47E6313CDA75700E06C6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6FD47E2413CDA75600E06C6E /* Project object */;
+}
