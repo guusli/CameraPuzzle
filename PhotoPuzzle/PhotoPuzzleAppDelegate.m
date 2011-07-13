@@ -8,7 +8,7 @@
 
 #import "PhotoPuzzleAppDelegate.h"
 #import "PuzzleController.h"
-#import "PuzzleTableController.m"
+#import "PuzzleTableController.h"
 
 @implementation PhotoPuzzleAppDelegate
 
@@ -18,9 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //puzzleTableController = [[PuzzleTableController alloc] init];
     
-    //[window setRootViewController:puzzleTableController];
+    puzzleTableController = [[PuzzleTableController alloc] init];
+    
+    [window setRootViewController:puzzleTableController];
     
 //    puzzleController = [[PuzzleController alloc] init];
 //    [window addSubview:puzzleController.view];

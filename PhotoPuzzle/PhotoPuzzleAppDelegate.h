@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class PuzzleController;
+@class PuzzleTableController;
 
 @interface PhotoPuzzleAppDelegate : NSObject <UIApplicationDelegate> 
 {
     UIWindow *window;
     PuzzleController *puzzleController;
+    PuzzleTableController *puzzleTableController;
     
 }
 
