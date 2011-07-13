@@ -13,6 +13,13 @@
 
 @synthesize puzzleName, imageKey;
 
++ (id) dummyPuzzle
+{
+    Puzzle *newPuzzle = [[self alloc] initWithPuzzleName:@"Puzzle" imageKey:@""];
+    
+    return newPuzzle;
+}
+
 - (id) initWithPuzzleName:(NSString *)name imageKey:(NSString *)key
 {
     [super init];

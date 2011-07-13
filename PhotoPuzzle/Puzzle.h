@@ -18,6 +18,7 @@
 @property (nonatomic, copy) NSString *puzzleName;
 @property (nonatomic, copy) NSString *imageKey;
 
++ (id) dummyPuzzle;
 - (id) initWithPuzzleName:(NSString *)name imageKey:(NSString *)key;
 
 @end

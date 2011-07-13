@@ -21,7 +21,12 @@
     
     puzzleTableController = [[PuzzleTableController alloc] init];
     
-    [window setRootViewController:puzzleTableController];
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:puzzleTableController];
+    
+    
+    [window setRootViewController:navController];
+    [navController release];
     
 //    puzzleController = [[PuzzleController alloc] init];
 //    [window addSubview:puzzleController.view];

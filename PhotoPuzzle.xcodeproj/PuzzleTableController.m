@@ -7,17 +7,35 @@
 //
 
 #import "PuzzleTableController.h"
+#import "Puzzle.h"
+#import "NewPuzzleController.h"
 
 
 @implementation PuzzleTableController
 
+- (id) init
+{
+    [super initWithStyle:UITableViewStyleGrouped];
+    
+    puzzles = [[NSMutableArray alloc] init];
+    for (int i=0; i<5; i++) {
+        [puzzles addObject:[Puzzle dummyPuzzle]];
+    }
+    
+    [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
+    
+    UIBarButtonItem *newPuzzleBarButtonItem = [[UIBarButtonItem alloc]
+                                               initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(newPuzzle:)];
+    
+    [[self navigationItem] setRightBarButtonItem:newPuzzleBarButtonItem];
+    [[self navigationItem] setTitle:@"All Puzzles"];
+    
+    return self;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    return [self init];
 }
 
 - (void)dealloc
@@ -39,11 +57,7 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
 }
 
 - (void)viewDidUnload
@@ -83,16 +97,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [puzzles count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,7 +114,8 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    Puzzle *p = [puzzles objectAtIndex:[indexPath row]];
+    [[cell textLabel] setText:[p puzzleName]];
     
     return cell;
 }
@@ -160,6 +171,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+- (void) newPuzzle:(id)sender
+{
+    if (!newPuzzleController) {
+        newPuzzleController = [[NewPuzzleController alloc] init];
+    }
+    
+    [[self navigationController] pushViewController:newPuzzleController animated:YES];
 }
 
 @end
