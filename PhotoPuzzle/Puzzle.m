@@ -15,7 +15,7 @@
 
 + (id) dummyPuzzle
 {
-    Puzzle *newPuzzle = [[self alloc] initWithPuzzleName:@"Puzzle"];
+    Puzzle *newPuzzle = [[[self alloc] initWithPuzzleName:@"Puzzle"] autorelease];
     
     return newPuzzle;
 }

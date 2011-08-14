@@ -1,41 +1,47 @@
 //
-//  PuzzleController.h
-//  PhotoPuzzle
+//  SliderController.h
+//  SliderPuzzleDemo
 //
-//  Created by Gustav Lindbergh on 2011-07-13.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Created by Joshua Newnham on 15/04/2009.
+//  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-@class Tile;
-
-#define NUM_HORIZONTAL_PIECES	3
-#define NUM_VERTICAL_PIECES		3
+#import "Tile.h"
 
 #define TILE_SPACING			4
 
-#define SHUFFLE_NUMBER          100
+#define SHUFFLE_NUMBER	100
 
-@interface PuzzleController : UIViewController 
-{
-    CGFloat tileWidth;
-    CGFloat tileHeight;
+typedef enum {
+	NONE			= 0,
+	UP				= 1,
+	DOWN			= 2, 
+	LEFT			= 3,
+	RIGHT			= 4
+} ShuffleMove;
+
+@interface PuzzleController : UIViewController {
     
-    NSMutableArray *tiles;
+    int numHorizontalPieces, numVerticalPieces;
     
-    Tile *toBeMoved;
+	CGFloat tileWidth; 
+	CGFloat tileHeight;
+	
+	NSMutableArray *tiles; 
+	CGPoint blankPosition; 
+    
+    UIImage *puzzleImage;
+    
     BOOL isMoving;
+    Tile *toBeMoved;
+    
 }
 
-@property (nonatomic, retain) NSMutableArray *tiles;
-@property (nonatomic, retain) Tile *toBeMoved;
-
--(void) initPuzzle:(UIImage *) imagePath;
--(void) swapTile:(Tile *) tile1 withTile:(Tile *) tile2 withAnimation:(BOOL) animate;
--(void) shuffle;
-
--(Tile *) getPieceAtPoint:(CGPoint) point;
--(BOOL) puzzleCompleted;
+@property (nonatomic) int numHorizontalPieces;
+@property (nonatomic) int numVerticalPieces;
+@property (nonatomic,retain) NSMutableArray *tiles;
+@property (nonatomic,retain) Tile *toBeMoved;
+@property (nonatomic, retain) UIImage *puzzleImage;
 
 @end

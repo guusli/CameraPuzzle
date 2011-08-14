@@ -8,10 +8,12 @@
 
 #import "NewPuzzleController.h"
 #import "Puzzle.h"
+#import "PuzzleController.h"
 
 @implementation NewPuzzleController
 
-@synthesize newPuzzle;
+@synthesize piecesSlider, piecesLabel;
+@synthesize newPuzzle, puzzleImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,13 +26,14 @@
         
         [[self navigationItem] setRightBarButtonItem:newPuzzleBarButtonItem];
         [[self navigationItem] setTitle:@"New Puzzle"];
+        
+        [newPuzzleBarButtonItem release];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [nameField release];
     [imageView release];
     
     [super dealloc];
@@ -55,8 +58,6 @@
 {
     [super viewDidUnload];
     
-    [nameField release];
-    nameField = nil;
     
     [imageView release];
     imageView = nil;
@@ -69,6 +70,18 @@
 }
 
 #pragma mark Image Picking Stuff
+
+- (UIImage *)resizeImage:(UIImage *)image
+{
+    CGSize newSize = CGSizeMake(312.0, 408.0);
+    UIGraphicsBeginImageContext( newSize );// a CGSize that has the size you want
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    //image is the original UIImage
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 
 - (void)takePicture:(id)sender
 {
@@ -103,19 +116,33 @@
     CFRelease(newUniqueID);
     CFRelease(newUniqueIDString);
     
+    image = [self resizeImage:image];
+    
     [imageView setImage:image];
     
     [newPuzzle setThumbnailDataFromImage:image];
     [newPuzzle setImageData:image];
     
+    puzzleImage = image;
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
+
+- (IBAction) sliderValueChanged:(id)sender
+{
+    piecesLabel.text = [NSString stringWithFormat:@"%.0f x %.0f",piecesSlider.value, piecesSlider.value];
+}
+
+
 - (IBAction) savePuzzle
 {
-    [newPuzzle setPuzzleName:[nameField text]];
-    [newPuzzle setBestScore:0];
-    [self.navigationController popViewControllerAnimated:YES];
+    puzzleController = [[PuzzleController alloc] init];
+    [puzzleController setPuzzleImage:puzzleImage];
+    [puzzleController setNumVerticalPieces:(int) piecesSlider.value];
+    [puzzleController setNumHorizontalPieces:(int) piecesSlider.value];
+
+    [[self navigationController] pushViewController:puzzleController animated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {

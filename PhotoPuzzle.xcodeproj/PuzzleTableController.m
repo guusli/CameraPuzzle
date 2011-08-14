@@ -30,6 +30,7 @@
     
     [[self navigationItem] setRightBarButtonItem:newPuzzleBarButtonItem];
     [[self navigationItem] setTitle:@"All Puzzles"];
+    [newPuzzleBarButtonItem release];
     
     return self;
 }

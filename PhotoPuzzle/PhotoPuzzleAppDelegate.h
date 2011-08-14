@@ -10,12 +10,14 @@
 
 @class PuzzleController;
 @class PuzzleTableController;
+@class NewPuzzleController;
 
 @interface PhotoPuzzleAppDelegate : NSObject <UIApplicationDelegate> 
 {
     UIWindow *window;
     PuzzleController *puzzleController;
     PuzzleTableController *puzzleTableController;
+    NewPuzzleController *newPuzzleController;
     
 }
 

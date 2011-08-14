@@ -9,6 +9,7 @@
 #import "PhotoPuzzleAppDelegate.h"
 #import "PuzzleController.h"
 #import "PuzzleTableController.h"
+#import "NewPuzzleController.h"
 
 @implementation PhotoPuzzleAppDelegate
 
@@ -19,10 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    puzzleTableController = [[PuzzleTableController alloc] init];
+    newPuzzleController = [[NewPuzzleController alloc] init];
     
     UINavigationController *navController = [[UINavigationController alloc]
-                                             initWithRootViewController:puzzleTableController];
+                                             initWithRootViewController:newPuzzleController];
     
     
     [window setRootViewController:navController];
