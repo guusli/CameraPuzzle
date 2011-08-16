@@ -36,12 +36,23 @@ typedef enum {
     BOOL isMoving;
     Tile *toBeMoved;
     
+    int numMoves;
+    
 }
 
 @property (nonatomic) int numHorizontalPieces;
 @property (nonatomic) int numVerticalPieces;
+@property (nonatomic) int numMoves;
 @property (nonatomic,retain) NSMutableArray *tiles;
 @property (nonatomic,retain) Tile *toBeMoved;
 @property (nonatomic, retain) UIImage *puzzleImage;
+
+- (void) swapTile:(Tile *) tile1 withTile:(Tile *) tile2 withAnimation:(BOOL) animate;
+- (void) initPuzzle:(UIImage *) imagePath;
+
+- (void) shuffle;
+
+- (Tile *) getPieceAtPoint:(CGPoint) point;
+- (BOOL) puzzleCompleted;
 
 @end

@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6F3B3E2D13CDF7B5004DBDCD /* PuzzleTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B3E2C13CDF7B5004DBDCD /* PuzzleTableController.m */; };
 		6F3B3E3013CDF8F1004DBDCD /* Puzzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B3E2F13CDF8F1004DBDCD /* Puzzle.m */; };
 		6F3B3E3413CDFBBB004DBDCD /* NewPuzzleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B3E3213CDFBBA004DBDCD /* NewPuzzleController.m */; };
 		6F3B3E3513CDFBBB004DBDCD /* NewPuzzleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F3B3E3313CDFBBA004DBDCD /* NewPuzzleController.xib */; };
-		6F3B3E4013CE00CE004DBDCD /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3B3E3F13CE00CE004DBDCD /* ImageCache.m */; };
-		6FB3F31313CE316A00D36E38 /* PuzzleItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB3F31213CE316A00D36E38 /* PuzzleItemCell.m */; };
+		6FB3548813F97F3D00D36A6B /* StartMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB3548613F97F3D00D36A6B /* StartMenuController.m */; };
+		6FB3548913F97F3D00D36A6B /* StartMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FB3548713F97F3D00D36A6B /* StartMenuController.xib */; };
 		6FD47E3213CDA75600E06C6E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3113CDA75600E06C6E /* UIKit.framework */; };
 		6FD47E3413CDA75600E06C6E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3313CDA75600E06C6E /* Foundation.framework */; };
 		6FD47E3613CDA75600E06C6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD47E3513CDA75600E06C6E /* CoreGraphics.framework */; };
@@ -42,17 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6F3B3E2B13CDF7B5004DBDCD /* PuzzleTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleTableController.h; path = PhotoPuzzle.xcodeproj/PuzzleTableController.h; sourceTree = SOURCE_ROOT; };
-		6F3B3E2C13CDF7B5004DBDCD /* PuzzleTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PuzzleTableController.m; path = PhotoPuzzle.xcodeproj/PuzzleTableController.m; sourceTree = SOURCE_ROOT; };
 		6F3B3E2E13CDF8F1004DBDCD /* Puzzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Puzzle.h; sourceTree = "<group>"; };
 		6F3B3E2F13CDF8F1004DBDCD /* Puzzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Puzzle.m; sourceTree = "<group>"; };
 		6F3B3E3113CDFBBA004DBDCD /* NewPuzzleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPuzzleController.h; sourceTree = "<group>"; };
 		6F3B3E3213CDFBBA004DBDCD /* NewPuzzleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPuzzleController.m; sourceTree = "<group>"; };
 		6F3B3E3313CDFBBA004DBDCD /* NewPuzzleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPuzzleController.xib; sourceTree = "<group>"; };
-		6F3B3E3E13CE00CE004DBDCD /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageCache.h; path = ../ImageCache.h; sourceTree = "<group>"; };
-		6F3B3E3F13CE00CE004DBDCD /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageCache.m; path = ../ImageCache.m; sourceTree = "<group>"; };
-		6FB3F31113CE316A00D36E38 /* PuzzleItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PuzzleItemCell.h; path = ../PuzzleItemCell.h; sourceTree = "<group>"; };
-		6FB3F31213CE316A00D36E38 /* PuzzleItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PuzzleItemCell.m; path = ../PuzzleItemCell.m; sourceTree = "<group>"; };
+		6FB3548513F97F3C00D36A6B /* StartMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartMenuController.h; sourceTree = "<group>"; };
+		6FB3548613F97F3D00D36A6B /* StartMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartMenuController.m; sourceTree = "<group>"; };
+		6FB3548713F97F3D00D36A6B /* StartMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartMenuController.xib; sourceTree = "<group>"; };
 		6FD47E2D13CDA75600E06C6E /* PhotoPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD47E3113CDA75600E06C6E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6FD47E3313CDA75600E06C6E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -133,8 +129,6 @@
 		6FD47E3713CDA75600E06C6E /* PhotoPuzzle */ = {
 			isa = PBXGroup;
 			children = (
-				6F3B3E3E13CE00CE004DBDCD /* ImageCache.h */,
-				6F3B3E3F13CE00CE004DBDCD /* ImageCache.m */,
 				6FD47E9E13CDD1AD00E06C6E /* winnipeg.png */,
 				6FD47E8D13CDB1B700E06C6E /* PuzzleController.h */,
 				6FD47E8E13CDB1B700E06C6E /* PuzzleController.m */,
@@ -145,13 +139,12 @@
 				6F3B3E3113CDFBBA004DBDCD /* NewPuzzleController.h */,
 				6F3B3E3213CDFBBA004DBDCD /* NewPuzzleController.m */,
 				6F3B3E3313CDFBBA004DBDCD /* NewPuzzleController.xib */,
-				6F3B3E2C13CDF7B5004DBDCD /* PuzzleTableController.m */,
-				6F3B3E2B13CDF7B5004DBDCD /* PuzzleTableController.h */,
 				6FD47E4013CDA75700E06C6E /* PhotoPuzzleAppDelegate.h */,
 				6FD47E4113CDA75700E06C6E /* PhotoPuzzleAppDelegate.m */,
+				6FB3548513F97F3C00D36A6B /* StartMenuController.h */,
+				6FB3548613F97F3D00D36A6B /* StartMenuController.m */,
+				6FB3548713F97F3D00D36A6B /* StartMenuController.xib */,
 				6FD47E4313CDA75700E06C6E /* MainWindow.xib */,
-				6FB3F31113CE316A00D36E38 /* PuzzleItemCell.h */,
-				6FB3F31213CE316A00D36E38 /* PuzzleItemCell.m */,
 				6FD47E3813CDA75600E06C6E /* Supporting Files */,
 			);
 			path = PhotoPuzzle;
@@ -259,6 +252,7 @@
 				6FD47E4513CDA75700E06C6E /* MainWindow.xib in Resources */,
 				6FD47E9F13CDD1AD00E06C6E /* winnipeg.png in Resources */,
 				6F3B3E3513CDFBBB004DBDCD /* NewPuzzleController.xib in Resources */,
+				6FB3548913F97F3D00D36A6B /* StartMenuController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +292,9 @@
 				6FD47E4213CDA75700E06C6E /* PhotoPuzzleAppDelegate.m in Sources */,
 				6FD47E8B13CDB0BB00E06C6E /* Tile.m in Sources */,
 				6FD47E8F13CDB1B700E06C6E /* PuzzleController.m in Sources */,
-				6F3B3E2D13CDF7B5004DBDCD /* PuzzleTableController.m in Sources */,
 				6F3B3E3013CDF8F1004DBDCD /* Puzzle.m in Sources */,
 				6F3B3E3413CDFBBB004DBDCD /* NewPuzzleController.m in Sources */,
-				6F3B3E4013CE00CE004DBDCD /* ImageCache.m in Sources */,
-				6FB3F31313CE316A00D36E38 /* PuzzleItemCell.m in Sources */,
+				6FB3548813F97F3D00D36A6B /* StartMenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

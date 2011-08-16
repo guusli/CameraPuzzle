@@ -11,7 +11,7 @@
 
 @implementation Puzzle
 
-@synthesize puzzleName, imageKey, bestScore, image;
+@synthesize puzzleName, imageKey, bestScore, puzzleImage;
 
 + (id) dummyPuzzle
 {
@@ -101,16 +101,16 @@
     return  thumbnail;
 }
 
-- (UIImage *) image
+- (UIImage *) puzzleImage
 {
     if (!imageData) {
         return nil;
     }
-    if (!image) {
-        image = [[UIImage imageWithData:imageData] retain];
+    if (!puzzleImage) {
+        puzzleImage = [[UIImage imageWithData:imageData] retain];
     }
     
-    return image;
+    return puzzleImage;
 }
 
 @end

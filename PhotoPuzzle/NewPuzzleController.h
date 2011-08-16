@@ -18,6 +18,7 @@
     IBOutlet UISlider *piecesSlider;
     IBOutlet UILabel *piecesLabel;
     IBOutlet UIButton *saveButton;
+    IBOutlet UILabel *instructionLabel;
     
     Puzzle *newPuzzle;
     PuzzleController *puzzleController;

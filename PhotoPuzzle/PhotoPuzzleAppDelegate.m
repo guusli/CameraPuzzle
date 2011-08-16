@@ -8,8 +8,7 @@
 
 #import "PhotoPuzzleAppDelegate.h"
 #import "PuzzleController.h"
-#import "PuzzleTableController.h"
-#import "NewPuzzleController.h"
+#import "StartMenuController.h"
 
 @implementation PhotoPuzzleAppDelegate
 
@@ -20,10 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    newPuzzleController = [[NewPuzzleController alloc] init];
+    startController = [[StartMenuController alloc] init];
     
     UINavigationController *navController = [[UINavigationController alloc]
-                                             initWithRootViewController:newPuzzleController];
+                                             initWithRootViewController:startController];
+    [navController.navigationBar setTintColor:[UIColor blackColor]];
+    [navController.toolbar setTintColor:[UIColor blackColor]];
+    //[navController.navigationBar setTranslucent:YES];
+    navController.toolbarHidden = NO;
     
     
     [window setRootViewController:navController];

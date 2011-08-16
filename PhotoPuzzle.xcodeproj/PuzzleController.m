@@ -12,32 +12,42 @@
 
 @interface PuzzleController()
 
--(void) initPuzzle:(UIImage *) imagePath;
-
--(ShuffleMove) validMove:(Tile *) tile;
--(void) movePiece:(Tile *) tile withAnimation:(BOOL) animate;
--(void) movePiece:(Tile *) tile inDirectionX:(NSInteger) dx inDirectionY:(NSInteger) dy withAnimation:(BOOL) animate;
--(void) shuffle;
-
--(Tile *) getPieceAtPoint:(CGPoint) point;
--(BOOL) puzzleCompleted;
-
 @end
 
 
 @implementation PuzzleController
 
 @synthesize tiles, puzzleImage, toBeMoved;
-@synthesize numVerticalPieces, numHorizontalPieces;
+@synthesize numVerticalPieces, numHorizontalPieces, numMoves;
 
-/*
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView {
- }
- */
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+    self.navigationController.toolbar.hidden = NO;
+}
 
 - (void)viewDidLoad {
 	self.view.backgroundColor = [UIColor grayColor];
+    
+    UIBarButtonItem *exitBarButtonItem = [[UIBarButtonItem alloc]
+                                          initWithTitle:@"Exit" style:UIBarButtonItemStyleBordered target:self action:nil];
+    exitBarButtonItem.title = @"Exit";
+    
+    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [fixed setWidth:245];
+    
+    UIBarButtonItem *text = [[UIBarButtonItem alloc] init];
+    text.title = @"0";
+    [text setStyle:UIBarButtonItemStylePlain];
+    
+    
+    
+    NSArray *items = [NSArray arrayWithObjects: exitBarButtonItem, fixed, text, nil];
+    self.toolbarItems= items;
+    
+    [exitBarButtonItem release];
+    [fixed release];
+    [text release];
 	
 	self.tiles = [[NSMutableArray alloc] init];
 	
@@ -77,10 +87,6 @@
 			
 			CGPoint orgPosition = CGPointMake(x,y); 
 			
-//			if( blankPosition.x == orgPosition.x && blankPosition.y == orgPosition.y ){
-//				continue; 
-//			}
-			
 			CGRect frame = CGRectMake(tileWidth*x, tileHeight*y, 
 									  tileWidth, tileHeight );
 			CGImageRef tileImageRef = CGImageCreateWithImageInRect( orgImage.CGImage, frame );
@@ -93,8 +99,7 @@
 			tileImageView.frame = tileFrame;
 			tileImageView.originalPosition = orgPosition;
 			tileImageView.currentPosition = orgPosition;
-			// free up some resources 
-			[tileImage release];
+
 			CGImageRelease( tileImageRef );
 			
 			[tiles addObject:tileImageView];
@@ -156,7 +161,7 @@
 	return YES; 
 }
 
--(void) swapTile:(Tile *) tile1 withTile:(Tile *) tile2 withAnimation:(BOOL) animate
+- (void) swapTile:(Tile *) tile1 withTile:(Tile *) tile2 withAnimation:(BOOL) animate
 {
     CGPoint temp = tile1.currentPosition;
 	tile1.currentPosition = tile2.currentPosition;
@@ -192,7 +197,8 @@
 {
     if ([self puzzleCompleted]) 
     {
-        return;
+        // Gå tillbaks till root
+       [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:0] animated:YES];
     }
     
     
@@ -216,15 +222,23 @@
         [self setToBeMoved:t];
         isMoving = YES;
         
-        NSLog(@"Tile at %f, %f!",t.currentPosition.x, t.currentPosition.y);
     }
     else
     {
+        NSLog(@"Tile at %f, %f!",toBeMoved.currentPosition.x, toBeMoved.currentPosition.y);
         NSLog(@"To be moved to  %f, %f!",t.currentPosition.x, t.currentPosition.y);
-        [self swapTile:toBeMoved withTile:t withAnimation:YES];
         isMoving = NO;
         [toBeMoved.layer setBorderColor: [[UIColor clearColor] CGColor]];
         [toBeMoved.layer setBorderWidth: 2.0];
+        
+        if (toBeMoved.currentPosition.x != t.currentPosition.x || toBeMoved.currentPosition.y != t.currentPosition.y) 
+        {
+            [self swapTile:toBeMoved withTile:t withAnimation:YES];
+            
+            // Öka move count
+            numMoves++;
+            [[self.toolbarItems objectAtIndex:2] setTitle:[NSString stringWithFormat:@"%d",numMoves]];
+        }
     }
     
     

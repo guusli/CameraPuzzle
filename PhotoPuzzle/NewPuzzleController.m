@@ -28,6 +28,7 @@
         [[self navigationItem] setTitle:@"New Puzzle"];
         
         [newPuzzleBarButtonItem release];
+        
     }
     return self;
 }
@@ -48,6 +49,12 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationController.toolbar.hidden = YES;
+}
 
 - (void)viewDidLoad
 {
@@ -125,6 +132,8 @@
     
     puzzleImage = image;
     
+    instructionLabel.hidden = YES;
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -141,7 +150,10 @@
     [puzzleController setPuzzleImage:puzzleImage];
     [puzzleController setNumVerticalPieces:(int) piecesSlider.value];
     [puzzleController setNumHorizontalPieces:(int) piecesSlider.value];
-
+    
+    puzzleController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //[self presentModalViewController:puzzleController animated:YES];
+    
     [[self navigationController] pushViewController:puzzleController animated:YES];
 }
 
