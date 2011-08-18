@@ -7,6 +7,10 @@
 //
 
 #import "AllPuzzlesController.h"
+#import "NewPuzzleController.h"
+#import "PuzzleController.h"
+#import "Puzzle.h"
+#import "ImageCache.h"
 
 
 @implementation AllPuzzlesController
@@ -17,13 +21,18 @@
     if (self) {
         UIBarButtonItem *newPuzzleBarButtonItem = [[UIBarButtonItem alloc]
                                                    initWithTitle:@"New" style: UIBarButtonItemStyleBordered 
-                                                   target:self action:@selector(takePicture:)];
+                                                   target:self action:@selector(newPuzzle:)];
         
         [[self navigationItem] setRightBarButtonItem:newPuzzleBarButtonItem];
-        [[self navigationItem] setTitle:@"All Puzzles"];
         
         [newPuzzleBarButtonItem release];
+        
+        puzzles = [[NSMutableArray alloc] init];
+        selectedPuzzle = [[Puzzle alloc] init];
+         
+        //[puzzles addObject:[Puzzle dummyPuzzle]];
     }
+    
     return self;
 }
 
@@ -43,9 +52,37 @@
 #pragma mark - View lifecycle
 
 - (void) viewWillAppear:(BOOL)animated
-{
+{    
     self.navigationController.navigationBar.hidden = NO;
     self.navigationController.toolbar.hidden = YES;
+    
+    if ([puzzles count] > 0) {
+        selectedPuzzle = [puzzles objectAtIndex:0];
+        [[self navigationItem] setTitle:[selectedPuzzle puzzleName]];        
+        [prevButton setHidden:NO];
+        [nextButton setHidden:NO];
+        [noPuzzlesLabel setHidden:YES];
+        [startButton setHidden:NO];
+        
+        NSString *imageKey = [selectedPuzzle imageKey];
+        
+        if (imageKey) {
+            UIImage *imageToDisplay = [[ImageCache sharedImageCache] imageForKey:imageKey];
+            [imageView setImage:imageToDisplay];
+        }
+        else
+        {
+            [imageView setImage:nil];
+        }
+    }
+    else
+    {
+        [prevButton setHidden:YES];
+        [nextButton setHidden:YES];
+        [noPuzzlesLabel setHidden:NO];
+        [startButton setHidden:YES];
+    }
+    
 }
 
 - (void)viewDidLoad
@@ -72,6 +109,31 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction) newPuzzle:(id)sender
+{    
+    newPuzzleController = [[NewPuzzleController alloc] init];
+    newPuzzleController.delegate = self;
+    
+    [[self navigationController]  pushViewController:newPuzzleController  animated:YES];
+}
+
+- (IBAction) startGame
+{
+    puzzleController = [[PuzzleController alloc] init];
+    [puzzleController setPuzzleImage:[imageView image]];
+    [puzzleController setNumVerticalPieces:[selectedPuzzle numPieces]];
+    [puzzleController setNumHorizontalPieces:[selectedPuzzle numPieces]];
+    
+    puzzleController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [[self navigationController] pushViewController:puzzleController animated:YES];
+}
+
+- (void)receivePuzzle:(Puzzle *)message 
+{
+	NSLog([NSString stringWithFormat:@"%d", message.numPieces]);
+    [puzzles addObject:message];
 }
 
 @end

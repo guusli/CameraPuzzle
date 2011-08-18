@@ -9,11 +9,14 @@
 #import "NewPuzzleController.h"
 #import "Puzzle.h"
 #import "PuzzleController.h"
+#import "AllPuzzlesController.h"
+#import "ImageCache.h"
 
 @implementation NewPuzzleController
 
 @synthesize piecesSlider, piecesLabel;
 @synthesize newPuzzle, puzzleImage;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +31,8 @@
         [[self navigationItem] setTitle:@"New Puzzle"];
         
         [newPuzzleBarButtonItem release];
+        
+        newPuzzle = [[Puzzle alloc] init];
         
     }
     return self;
@@ -118,6 +123,7 @@
     // Skapa unik nyckel
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
+    
     [newPuzzle setImageKey:(NSString *) newUniqueIDString];
     
     CFRelease(newUniqueID);
@@ -125,12 +131,14 @@
     
     image = [self resizeImage:image];
     
+    [[ImageCache sharedImageCache] setImage:image forKey:[newPuzzle imageKey]];
+    
     [imageView setImage:image];
     
-    [newPuzzle setThumbnailDataFromImage:image];
-    [newPuzzle setImageData:image];
+//    [newPuzzle setThumbnailDataFromImage:image];
+//    [newPuzzle setImageData:image];
     
-    puzzleImage = image;
+    //puzzleImage = image;
     
     instructionLabel.hidden = YES;
     
@@ -146,15 +154,14 @@
 
 - (IBAction) savePuzzle
 {
-    puzzleController = [[PuzzleController alloc] init];
-    [puzzleController setPuzzleImage:puzzleImage];
-    [puzzleController setNumVerticalPieces:(int) piecesSlider.value];
-    [puzzleController setNumHorizontalPieces:(int) piecesSlider.value];
     
-    puzzleController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    //[self presentModalViewController:puzzleController animated:YES];
+    newPuzzle.numPieces = (int) piecesSlider.value;
+    newPuzzle.puzzleName = nameTextField.text;
     
-    [[self navigationController] pushViewController:puzzleController animated:YES];
+    [delegate receivePuzzle:newPuzzle];
+    
+    //[self dismissModalViewControllerAnimated:YES];
+    [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {

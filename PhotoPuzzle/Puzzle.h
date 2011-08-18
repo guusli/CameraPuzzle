@@ -14,17 +14,21 @@
     NSString *puzzleName;
     NSString *imageKey;
     int bestScore;
+    int numPieces;
     UIImage *thumbnail;
     NSData *thumbnailData;
     UIImage *puzzleImage;
     NSData *imageData;
+    BOOL isPuzzleComplete;
 }
 
 @property (nonatomic, copy) NSString *puzzleName;
 @property (nonatomic, copy) NSString *imageKey;
 @property (nonatomic) int bestScore;
+@property (nonatomic) int numPieces;
 @property (readonly) UIImage *thumbnail;
 @property (readonly) UIImage *puzzleImage;
+@property BOOL isPuzzleComplete;
 
 + (id) dummyPuzzle;
 - (id) initWithPuzzleName:(NSString *)name;

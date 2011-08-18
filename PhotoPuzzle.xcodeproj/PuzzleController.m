@@ -198,7 +198,7 @@
     if ([self puzzleCompleted]) 
     {
         // Gå tillbaks till root
-       [self.navigationController popToViewController:[[self.navigationController viewControllers] objectAtIndex:0] animated:YES];
+       [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
     

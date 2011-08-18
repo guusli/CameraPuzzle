@@ -11,7 +11,7 @@
 
 @implementation Puzzle
 
-@synthesize puzzleName, imageKey, bestScore, puzzleImage;
+@synthesize puzzleName, imageKey, bestScore, puzzleImage, isPuzzleComplete, numPieces;
 
 + (id) dummyPuzzle
 {
