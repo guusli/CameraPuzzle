@@ -56,9 +56,13 @@
 #pragma mark - View lifecycle
 
 - (void) viewWillAppear:(BOOL)animated
-{
-    self.navigationController.navigationBar.hidden = NO;
-    self.navigationController.toolbar.hidden = YES;
+{    
+//    UIBarButtonItem *flexible = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+//    
+//    UIBarButtonItem *saveBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:nil action:@selector(savePuzzle:)];
+//    
+//    NSArray *items = [NSArray arrayWithObjects: flexible, saveBarButtonItem, flexible, nil];
+//    self.toolbarItems= items;
 }
 
 - (void)viewDidLoad
@@ -152,7 +156,7 @@
 }
 
 
-- (IBAction) savePuzzle
+- (IBAction) savePuzzle:(id)sender
 {
     
     newPuzzle.numPieces = (int) piecesSlider.value;

@@ -24,6 +24,7 @@
     IBOutlet UIButton *startButton;
     IBOutlet UIImageView *imageView;
     IBOutlet UILabel *noPuzzlesLabel;
+    IBOutlet UIToolbar *toolbar;
     
     NSMutableArray *puzzles;
     
@@ -31,10 +32,16 @@
     PuzzleController *puzzleController;
     
     Puzzle *selectedPuzzle;
+    int currentIndex;
 
 }
 
 - (IBAction) newPuzzle:(id)sender;
-- (IBAction) startGame;
+- (IBAction) prevPuzzle:(id)sender;
+- (IBAction) nextPuzzle:(id)sender;
+- (IBAction) startGame:(id)sender;
+
+- (void) changePuzzleToIndex:(int)index;
+- (void) enableButtons;
 
 @end

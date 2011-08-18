@@ -29,6 +29,7 @@
         
         puzzles = [[NSMutableArray alloc] init];
         selectedPuzzle = [[Puzzle alloc] init];
+        currentIndex = 0;
          
         //[puzzles addObject:[Puzzle dummyPuzzle]];
     }
@@ -54,34 +55,28 @@
 - (void) viewWillAppear:(BOOL)animated
 {    
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationController.toolbar.hidden = YES;
     
     if ([puzzles count] > 0) {
-        selectedPuzzle = [puzzles objectAtIndex:0];
-        [[self navigationItem] setTitle:[selectedPuzzle puzzleName]];        
-        [prevButton setHidden:NO];
-        [nextButton setHidden:NO];
+        
+        [self changePuzzleToIndex:currentIndex];
+    
+        [self enableButtons];
         [noPuzzlesLabel setHidden:YES];
-        [startButton setHidden:NO];
-        
-        NSString *imageKey = [selectedPuzzle imageKey];
-        
-        if (imageKey) {
-            UIImage *imageToDisplay = [[ImageCache sharedImageCache] imageForKey:imageKey];
-            [imageView setImage:imageToDisplay];
-        }
-        else
-        {
-            [imageView setImage:nil];
-        }
+
     }
     else
     {
-        [prevButton setHidden:YES];
-        [nextButton setHidden:YES];
+        [[toolbar.items objectAtIndex:0] setEnabled:NO]; // Previous
+        [[toolbar.items objectAtIndex:2] setEnabled:NO]; // Go!
+        [[toolbar.items objectAtIndex:4] setEnabled:NO]; // Next
         [noPuzzlesLabel setHidden:NO];
         [startButton setHidden:YES];
     }
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release]; 
+    
     
 }
 
@@ -119,7 +114,24 @@
     [[self navigationController]  pushViewController:newPuzzleController  animated:YES];
 }
 
-- (IBAction) startGame
+- (IBAction) prevPuzzle:(id)sender
+{
+    if (currentIndex == 0)
+        return;
+    currentIndex--;
+    [self changePuzzleToIndex:currentIndex];
+}
+
+- (IBAction) nextPuzzle:(id)sender
+{
+    NSLog([NSString stringWithFormat:@"Cunt: %d", [puzzles count]]);
+    if (currentIndex+1 == [puzzles count])
+        return;
+    currentIndex++;
+    [self changePuzzleToIndex:currentIndex];
+}
+
+- (IBAction) startGame:(id)sender
 {
     puzzleController = [[PuzzleController alloc] init];
     [puzzleController setPuzzleImage:[imageView image]];
@@ -134,6 +146,50 @@
 {
 	NSLog([NSString stringWithFormat:@"%d", message.numPieces]);
     [puzzles addObject:message];
+}
+
+- (void) changePuzzleToIndex:(int)index
+{
+    selectedPuzzle = [puzzles objectAtIndex:index];
+    
+    NSString *imageKey = [selectedPuzzle imageKey];
+    
+    if (imageKey) {
+        UIImage *imageToDisplay = [[ImageCache sharedImageCache] imageForKey:imageKey];
+        [imageView setImage:imageToDisplay];
+    }
+    else
+    {
+        [imageView setImage:nil];
+    }
+    
+    [[self navigationItem] setTitle:[selectedPuzzle puzzleName]];
+    
+    [self enableButtons];
+    
+}
+
+- (void) enableButtons
+{
+    // Previous
+    if (currentIndex == 0)
+        [[toolbar.items objectAtIndex:0] setEnabled:NO];
+    else
+        [[toolbar.items objectAtIndex:0] setEnabled:YES];
+    
+    // Next
+    if (currentIndex + 1 == [puzzles count])
+        [[toolbar.items objectAtIndex:4] setEnabled:NO];
+    else
+        [[toolbar.items objectAtIndex:4] setEnabled:YES];
+    
+    // Go!
+    if ([puzzles count] > 0)
+        [[toolbar.items objectAtIndex:2] setEnabled:YES];
+    else
+        [[toolbar.items objectAtIndex:2] setEnabled:YES];
+    
+    
 }
 
 @end

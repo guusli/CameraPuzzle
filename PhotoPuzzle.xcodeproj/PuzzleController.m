@@ -22,32 +22,18 @@
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    self.navigationController.navigationBar.hidden = YES;
-    self.navigationController.toolbar.hidden = NO;
 }
 
 - (void)viewDidLoad {
 	self.view.backgroundColor = [UIColor grayColor];
     
-    UIBarButtonItem *exitBarButtonItem = [[UIBarButtonItem alloc]
-                                          initWithTitle:@"Exit" style:UIBarButtonItemStyleBordered target:self action:nil];
-    exitBarButtonItem.title = @"Exit";
+    UIBarButtonItem *movesBarButtonItem = [[UIBarButtonItem alloc] init];
+    movesBarButtonItem.title = @"0";
+    [movesBarButtonItem setStyle:UIBarButtonItemStylePlain];
     
-    UIBarButtonItem *fixed = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    [fixed setWidth:245];
+    [[self navigationItem] setRightBarButtonItem:movesBarButtonItem];
     
-    UIBarButtonItem *text = [[UIBarButtonItem alloc] init];
-    text.title = @"0";
-    [text setStyle:UIBarButtonItemStylePlain];
-    
-    
-    
-    NSArray *items = [NSArray arrayWithObjects: exitBarButtonItem, fixed, text, nil];
-    self.toolbarItems= items;
-    
-    [exitBarButtonItem release];
-    [fixed release];
-    [text release];
+    [movesBarButtonItem release];
 	
 	self.tiles = [[NSMutableArray alloc] init];
 	
@@ -237,7 +223,7 @@
             
             // Öka move count
             numMoves++;
-            [[self.toolbarItems objectAtIndex:2] setTitle:[NSString stringWithFormat:@"%d",numMoves]];
+            [[[self navigationItem] rightBarButtonItem] setTitle:[NSString stringWithFormat:@"%d",numMoves]];
         }
     }
     

@@ -37,7 +37,7 @@
 @property (nonatomic, assign) id<AllPuzzlesDelegate> delegate;
 
 - (IBAction) sliderValueChanged:(id)sender;
-- (IBAction) savePuzzle;
+- (IBAction) savePuzzle:(id)sender;
 - (UIImage *)resizeImage:(UIImage *)image;
 
 @end

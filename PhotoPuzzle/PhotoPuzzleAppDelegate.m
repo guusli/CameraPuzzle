@@ -24,7 +24,6 @@
     [navController.navigationBar setTintColor:[UIColor blackColor]];
     [navController.toolbar setTintColor:[UIColor blackColor]];
     //[navController.navigationBar setTranslucent:YES];
-    navController.toolbarHidden = NO;
     
     
     [window setRootViewController:navController];
