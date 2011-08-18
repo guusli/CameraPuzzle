@@ -7,19 +7,17 @@
 //
 
 #import "PhotoPuzzleAppDelegate.h"
-#import "PuzzleController.h"
-#import "StartMenuController.h"
+#import "AllPuzzlesController.h"
 
 @implementation PhotoPuzzleAppDelegate
 
 
 @synthesize window;
-@synthesize puzzleController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    startController = [[StartMenuController alloc] init];
+    startController = [[AllPuzzlesController alloc] init];
     
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:startController];
