@@ -1,5 +1,5 @@
 //
-//  PuzzleTableController.h
+//  PuzzleView.h
 //  PhotoPuzzle
 //
 //  Created by Gustav Lindbergh on 2011-07-13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PuzzleTableController : UITableViewController {
+@interface PuzzleView : UIView {
     
 }
 
