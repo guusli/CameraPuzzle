@@ -19,4 +19,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
+- (NSString *)puzzlesArrayPath;
+- (void)archivePuzzles;
+
 @end

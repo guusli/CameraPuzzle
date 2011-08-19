@@ -11,9 +11,15 @@
 #import "PuzzleController.h"
 #import "Puzzle.h"
 #import "ImageCache.h"
+#import <QuartzCore/QuartzCore.h>
 
+
+#define PREVIOUS -1
+#define NEXT 1
 
 @implementation AllPuzzlesController
+
+@synthesize puzzles;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,7 +64,7 @@
     
     if ([puzzles count] > 0) {
         
-        [self changePuzzleToIndex:currentIndex];
+        [self changePuzzleToIndex:currentIndex inDirection:NEXT];
     
         [self enableButtons];
         [noPuzzlesLabel setHidden:YES];
@@ -83,7 +89,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [prevPuzzleImageView removeFromSuperview];
 }
 
 - (void)viewDidUnload
@@ -119,7 +126,7 @@
     if (currentIndex == 0)
         return;
     currentIndex--;
-    [self changePuzzleToIndex:currentIndex];
+    [self changePuzzleToIndex:currentIndex inDirection:PREVIOUS];
 }
 
 - (IBAction) nextPuzzle:(id)sender
@@ -128,7 +135,7 @@
     if (currentIndex+1 == [puzzles count])
         return;
     currentIndex++;
-    [self changePuzzleToIndex:currentIndex];
+    [self changePuzzleToIndex:currentIndex inDirection:NEXT];
 }
 
 - (IBAction) startGame:(id)sender
@@ -142,20 +149,41 @@
     [[self navigationController] pushViewController:puzzleController animated:YES];
 }
 
+- (IBAction)showInfo:(id)sender
+{
+    // Visa Info
+}
+
 - (void)receivePuzzle:(Puzzle *)message 
 {
 	NSLog([NSString stringWithFormat:@"%d", message.numPieces]);
     [puzzles addObject:message];
 }
 
-- (void) changePuzzleToIndex:(int)index
+- (void) changePuzzleToIndex:(int)index inDirection:(int)direction
 {
+    //UIImage *oldImage = imageView.image;
     selectedPuzzle = [puzzles objectAtIndex:index];
     
     NSString *imageKey = [selectedPuzzle imageKey];
     
     if (imageKey) {
-        UIImage *imageToDisplay = [[ImageCache sharedImageCache] imageForKey:imageKey];
+       UIImage *imageToDisplay = [[ImageCache sharedImageCache] imageForKey:imageKey];
+        
+        UIImageView *newImageView = [[UIImageView alloc] initWithImage:imageToDisplay];
+        [self.view addSubview:newImageView];
+        newImageView.frame = CGRectMake(-400*direction, 20, 241, 319);
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:imageView cache:YES];
+        //[imageView setImage:imageToDisplay];
+        
+        newImageView.frame = CGRectMake(40, 20, 241, 319);
+        imageView.frame = CGRectMake(40, 20, 241, 319);
+        [UIView commitAnimations];
+        
+        
         [imageView setImage:imageToDisplay];
     }
     else

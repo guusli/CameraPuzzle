@@ -38,6 +38,9 @@ typedef enum {
     
     int numMoves;
     
+    BOOL isGameStarted;
+    
+    UIImageView *blackImageView;    
 }
 
 @property (nonatomic) int numHorizontalPieces;
@@ -51,6 +54,7 @@ typedef enum {
 - (void) initPuzzle:(UIImage *) imagePath;
 
 - (void) shuffle;
+- (void) playAgain;
 
 - (Tile *) getPieceAtPoint:(CGPoint) point;
 - (BOOL) puzzleCompleted;

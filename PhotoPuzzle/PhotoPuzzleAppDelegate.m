@@ -17,7 +17,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    // HŠmta sparade pussel
+    NSString *puzzlesPath = [self puzzlesArrayPath];
+    NSMutableArray *puzzlesArray = [NSKeyedUnarchiver unarchiveObjectWithFile:puzzlesPath];
+    
+    if (!puzzlesArray)
+        puzzlesArray = [NSMutableArray array];
+    
+    
     startController = [[AllPuzzlesController alloc] init];
+    [startController setPuzzles:puzzlesArray];
     
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:startController];
@@ -46,10 +55,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    /*
-     Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-     If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-     */
+    [self archivePuzzles];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -68,17 +74,25 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    /*
-     Called when the application is about to terminate.
-     Save data if appropriate.
-     See also applicationDidEnterBackground:.
-     */
+    [self archivePuzzles];
 }
 
 - (void)dealloc
 {
     [window release];
     [super dealloc];
+}
+
+- (NSString *)puzzlesArrayPath
+{
+    return pathInDocumentDirectory(@"Puzzles.data");
+}
+
+- (void) archivePuzzles
+{
+    NSString *puzzlesPath = [self puzzlesArrayPath];
+    NSMutableArray *puzzlesArray = [startController puzzles];
+    [NSKeyedArchiver archiveRootObject:puzzlesArray toFile:puzzlesPath];
 }
 
 @end

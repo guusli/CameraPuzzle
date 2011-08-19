@@ -25,6 +25,8 @@
     IBOutlet UIImageView *imageView;
     IBOutlet UILabel *noPuzzlesLabel;
     IBOutlet UIToolbar *toolbar;
+    IBOutlet UIImageView *prevPuzzleImageView;
+    IBOutlet UIImageView *nextPuzzleImageView;
     
     NSMutableArray *puzzles;
     
@@ -36,12 +38,15 @@
 
 }
 
+@property (nonatomic, retain) NSMutableArray *puzzles;
+
 - (IBAction) newPuzzle:(id)sender;
 - (IBAction) prevPuzzle:(id)sender;
 - (IBAction) nextPuzzle:(id)sender;
 - (IBAction) startGame:(id)sender;
+- (IBAction) showInfo:(id)sender;
 
-- (void) changePuzzleToIndex:(int)index;
+- (void) changePuzzleToIndex:(int)index inDirection:(int)direction;
 - (void) enableButtons;
 
 @end

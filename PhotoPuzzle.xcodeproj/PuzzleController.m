@@ -38,6 +38,9 @@
 	self.tiles = [[NSMutableArray alloc] init];
 	
 	[self initPuzzle:puzzleImage];
+    
+    blackImageView = [[UIImageView alloc] init];
+    
     [super viewDidLoad];
 }
 
@@ -114,6 +117,19 @@
 		//NSLog(@"shuffleRandom using pick: %d from array of size %d", pick, [validMoves count]);
 		[self swapTile:[tiles objectAtIndex:A] withTile:[tiles objectAtIndex:B] withAnimation:YES];
 	}
+    
+    if ([self puzzleCompleted]) 
+        [self shuffle];
+    
+    isGameStarted = YES;
+}
+
+- (void) playAgain
+{
+    isGameStarted = NO;
+    [self shuffle];
+    numMoves = 0;
+    [[[self navigationItem] rightBarButtonItem] setTitle:[NSString stringWithFormat:@"%d",numMoves]];
 }
 
 
@@ -175,17 +191,25 @@
 	if( animate ){
 		[UIView commitAnimations];
 	}
+    
+    if (isGameStarted && [self puzzleCompleted]) 
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Puzzle Completed!" message:[NSString stringWithFormat:@"Moves: %d",numMoves] 
+                                                       delegate:self cancelButtonTitle:@"Return" otherButtonTitles:@"Play Again",nil];
+        [alert show];
+        [alert release];
+    }
 }
 
 #pragma mark user input hanlding 
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event 
 {
-    if ([self puzzleCompleted]) 
-    {
-        // Gå tillbaks till root
-       [self.navigationController popToRootViewControllerAnimated:YES];
-    }
+//    if ([self puzzleCompleted]) 
+//    {
+//        // Gå tillbaks till root
+//       [self.navigationController popToRootViewControllerAnimated:YES];
+//    }
     
     
 	UITouch *touch = [touches anyObject];
@@ -202,8 +226,13 @@
     
     if (!isMoving) 
     {
-        [t.layer setBorderColor: [[UIColor redColor] CGColor]];
-        [t.layer setBorderWidth: 2.0];
+//        [t.layer setBorderColor: [[UIColor redColor] CGColor]];
+//        [t.layer setBorderWidth: 2.0];
+        blackImageView.frame = t.frame;
+        blackImageView.backgroundColor = [UIColor blackColor];
+        blackImageView.alpha = 0.5;
+        [self.view addSubview:blackImageView];
+        
         
         [self setToBeMoved:t];
         isMoving = YES;
@@ -214,16 +243,17 @@
         NSLog(@"Tile at %f, %f!",toBeMoved.currentPosition.x, toBeMoved.currentPosition.y);
         NSLog(@"To be moved to  %f, %f!",t.currentPosition.x, t.currentPosition.y);
         isMoving = NO;
-        [toBeMoved.layer setBorderColor: [[UIColor clearColor] CGColor]];
-        [toBeMoved.layer setBorderWidth: 2.0];
+//        [toBeMoved.layer setBorderColor: [[UIColor clearColor] CGColor]];
+//        [toBeMoved.layer setBorderWidth: 2.0];
         
+        [blackImageView removeFromSuperview];
         if (toBeMoved.currentPosition.x != t.currentPosition.x || toBeMoved.currentPosition.y != t.currentPosition.y) 
         {
-            [self swapTile:toBeMoved withTile:t withAnimation:YES];
-            
             // Öka move count
             numMoves++;
             [[[self navigationItem] rightBarButtonItem] setTitle:[NSString stringWithFormat:@"%d",numMoves]];
+            
+            [self swapTile:toBeMoved withTile:t withAnimation:YES];
         }
     }
     
@@ -233,6 +263,21 @@
 - (void)dealloc {
 	[tiles release];
     [super dealloc];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex 
+{ 
+    switch(buttonIndex) 
+    {
+        case 0:
+            [[self navigationController] popViewControllerAnimated:YES];
+            break;
+        case 1:
+            [self playAgain];
+            break;
+        default:
+            break;
+    }
 }
 
 

@@ -113,4 +113,24 @@
     return puzzleImage;
 }
 
+#pragma mark Archiving stuff
+
+- (void) encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:puzzleName forKey:@"puzzleName"];
+    [aCoder encodeInt:numPieces forKey:@"numPieces"];
+    [aCoder encodeInt:bestScore forKey:@"bestScore"];
+    [aCoder encodeObject:imageKey forKey:@"imageKey"];
+}
+
+- (id) initWithCoder:(NSCoder *)aDecoder
+{
+    [self setPuzzleName:[aDecoder decodeObjectForKey:@"puzzleName"]];
+    [self setNumPieces:(int)[aDecoder decodeIntForKey:@"numPieces"]];
+    [self setBestScore:(int)[aDecoder decodeIntForKey:@"bestScore"]];
+    [self setImageKey:[aDecoder decodeObjectForKey:@"imageKey"]];
+    
+    return self;
+}
+
 @end

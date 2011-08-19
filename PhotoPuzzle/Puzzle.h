@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Puzzle : NSObject 
+@interface Puzzle : NSObject <NSCoding>
 {
     NSString *puzzleName;
     NSString *imageKey;
