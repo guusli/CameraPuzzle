@@ -13,6 +13,7 @@
 @protocol AllPuzzlesDelegate
 
 - (void)receivePuzzle:(Puzzle *)message;
+- (void)receiveRemoveOrder;
 
 @end
 
@@ -27,6 +28,7 @@
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIImageView *prevPuzzleImageView;
     IBOutlet UIImageView *nextPuzzleImageView;
+    IBOutlet UIButton *infoButton;
     
     NSMutableArray *puzzles;
     

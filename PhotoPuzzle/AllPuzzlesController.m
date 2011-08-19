@@ -12,6 +12,7 @@
 #import "Puzzle.h"
 #import "ImageCache.h"
 #import <QuartzCore/QuartzCore.h>
+#import "PuzzleInfoController.h"
 
 
 #define PREVIOUS -1
@@ -68,6 +69,7 @@
     
         [self enableButtons];
         [noPuzzlesLabel setHidden:YES];
+        [infoButton setHidden:NO];
 
     }
     else
@@ -77,6 +79,9 @@
         [[toolbar.items objectAtIndex:4] setEnabled:NO]; // Next
         [noPuzzlesLabel setHidden:NO];
         [startButton setHidden:YES];
+        [imageView setImage:nil];
+        [[self navigationItem] setTitle:nil];
+        [infoButton setHidden:YES];
     }
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -151,13 +156,26 @@
 
 - (IBAction)showInfo:(id)sender
 {
-    // Visa Info
+    PuzzleInfoController *infoController = [[PuzzleInfoController alloc] init];
+    [infoController setPuzzle:selectedPuzzle];
+    [infoController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
+    [infoController setDelegate:self];
+    
+    [self presentModalViewController:infoController animated:YES];
+    
 }
 
 - (void)receivePuzzle:(Puzzle *)message 
 {
-	NSLog([NSString stringWithFormat:@"%d", message.numPieces]);
     [puzzles addObject:message];
+}
+
+- (void)receiveRemoveOrder
+{
+    NSLog(@"Remove!");
+    [puzzles removeObjectAtIndex:currentIndex];
+    if (currentIndex > [puzzles count]-1)
+        currentIndex = [puzzles count] - 1;
 }
 
 - (void) changePuzzleToIndex:(int)index inDirection:(int)direction
@@ -170,19 +188,7 @@
     if (imageKey) {
        UIImage *imageToDisplay = [[ImageCache sharedImageCache] imageForKey:imageKey];
         
-        UIImageView *newImageView = [[UIImageView alloc] initWithImage:imageToDisplay];
-        [self.view addSubview:newImageView];
-        newImageView.frame = CGRectMake(-400*direction, 20, 241, 319);
-        
-        [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration:0.5];
-        //[UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:imageView cache:YES];
-        //[imageView setImage:imageToDisplay];
-        
-        newImageView.frame = CGRectMake(40, 20, 241, 319);
         imageView.frame = CGRectMake(40, 20, 241, 319);
-        [UIView commitAnimations];
-        
         
         [imageView setImage:imageToDisplay];
     }
