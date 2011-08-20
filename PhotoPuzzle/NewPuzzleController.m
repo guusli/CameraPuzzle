@@ -41,6 +41,12 @@
 - (void)dealloc
 {
     [imageView release];
+    [piecesSlider release];
+    [piecesLabel release];
+    [instructionLabel release];
+    
+    [newPuzzle release];
+    [puzzleImage release];
     
     [super dealloc];
 }
@@ -77,6 +83,13 @@
     
     [imageView release];
     imageView = nil;
+    [piecesSlider release];
+    piecesSlider = nil;
+    [piecesLabel release];
+    piecesLabel = nil;
+    [instructionLabel release];
+    instructionLabel = nil;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

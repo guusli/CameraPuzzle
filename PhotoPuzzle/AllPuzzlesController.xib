@@ -252,22 +252,6 @@
 					<int key="connectionID">46</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">nextPuzzleImageView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="733611946"/>
-					</object>
-					<int key="connectionID">50</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">prevPuzzleImageView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="171645836"/>
-					</object>
-					<int key="connectionID">51</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">showInfo:</string>
 						<reference key="source" ref="546096088"/>
@@ -500,24 +484,14 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>imageView</string>
 							<string>infoButton</string>
-							<string>nextButton</string>
-							<string>nextPuzzleImageView</string>
 							<string>noPuzzlesLabel</string>
-							<string>prevButton</string>
-							<string>prevPuzzleImageView</string>
-							<string>startButton</string>
 							<string>toolbar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIImageView</string>
 							<string>UIButton</string>
-							<string>UIButton</string>
-							<string>UIImageView</string>
 							<string>UILabel</string>
-							<string>UIButton</string>
-							<string>UIImageView</string>
-							<string>UIButton</string>
 							<string>UIToolbar</string>
 						</object>
 					</object>
@@ -527,12 +501,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>imageView</string>
 							<string>infoButton</string>
-							<string>nextButton</string>
-							<string>nextPuzzleImageView</string>
 							<string>noPuzzlesLabel</string>
-							<string>prevButton</string>
-							<string>prevPuzzleImageView</string>
-							<string>startButton</string>
 							<string>toolbar</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -546,28 +515,8 @@
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">nextButton</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">nextPuzzleImageView</string>
-								<string key="candidateClassName">UIImageView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">noPuzzlesLabel</string>
 								<string key="candidateClassName">UILabel</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">prevButton</string>
-								<string key="candidateClassName">UIButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">prevPuzzleImageView</string>
-								<string key="candidateClassName">UIImageView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">startButton</string>
-								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">toolbar</string>

@@ -26,9 +26,6 @@
 @property (nonatomic, copy) NSString *imageKey;
 @property (nonatomic) int bestScore;
 @property (nonatomic) int numPieces;
-@property (readonly) UIImage *thumbnail;
-@property (readonly) UIImage *puzzleImage;
-@property BOOL isPuzzleComplete;
 
 + (id) dummyPuzzle;
 - (id) initWithPuzzleName:(NSString *)name;

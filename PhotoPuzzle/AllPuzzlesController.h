@@ -20,14 +20,9 @@
 
 @interface AllPuzzlesController : UIViewController <AllPuzzlesDelegate>
 { 
-    IBOutlet UIButton *nextButton;
-    IBOutlet UIButton *prevButton;
-    IBOutlet UIButton *startButton;
     IBOutlet UIImageView *imageView;
     IBOutlet UILabel *noPuzzlesLabel;
     IBOutlet UIToolbar *toolbar;
-    IBOutlet UIImageView *prevPuzzleImageView;
-    IBOutlet UIImageView *nextPuzzleImageView;
     IBOutlet UIButton *infoButton;
     
     NSMutableArray *puzzles;

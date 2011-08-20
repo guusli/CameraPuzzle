@@ -262,6 +262,9 @@
 
 - (void)dealloc {
 	[tiles release];
+    [toBeMoved release];
+    [puzzleImage release];
+    
     [super dealloc];
 }
 

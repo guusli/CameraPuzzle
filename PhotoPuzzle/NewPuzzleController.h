@@ -16,13 +16,11 @@
 @interface NewPuzzleController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 {
     id<AllPuzzlesDelegate> delegate;
-    IBOutlet UIButton *photoButton;
     IBOutlet UIImageView *imageView;
     IBOutlet UISlider *piecesSlider;
     IBOutlet UILabel *piecesLabel;
-    IBOutlet UIButton *saveButton;
     IBOutlet UILabel *instructionLabel;
-    IBOutlet UITextField *nameTextField;
+    IBOutlet UILabel *nameTextField;
     
     Puzzle *newPuzzle;
     PuzzleController *puzzleController;
@@ -30,8 +28,8 @@
     
 }
 
-@property (nonatomic, assign) Puzzle *newPuzzle;
-@property (nonatomic, assign) UIImage *puzzleImage;
+@property (nonatomic, retain) Puzzle *newPuzzle;
+@property (nonatomic, retain) UIImage *puzzleImage;
 @property (nonatomic, retain) IBOutlet UISlider *piecesSlider;
 @property (nonatomic, retain) IBOutlet UILabel *piecesLabel;
 @property (nonatomic, assign) id<AllPuzzlesDelegate> delegate;

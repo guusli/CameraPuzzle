@@ -46,6 +46,13 @@
 
 - (void)dealloc
 {
+    [infoButton release];
+    [noPuzzlesLabel release];
+    [imageView release];
+    [toolbar release];
+    
+    [puzzles release];
+    
     [super dealloc];
 }
 
@@ -78,7 +85,7 @@
         [[toolbar.items objectAtIndex:2] setEnabled:NO]; // Go!
         [[toolbar.items objectAtIndex:4] setEnabled:NO]; // Next
         [noPuzzlesLabel setHidden:NO];
-        [startButton setHidden:YES];
+        //[startButton setHidden:YES];
         [imageView setImage:nil];
         [[self navigationItem] setTitle:nil];
         [infoButton setHidden:YES];
@@ -94,22 +101,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [prevPuzzleImageView removeFromSuperview];
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
     
-    [nextButton release];
-    nextButton = nil;
-    [prevButton release];
-    prevButton = nil;
+    [infoButton release];
+    infoButton = nil;
+    [noPuzzlesLabel release];
+    noPuzzlesLabel = nil;
     [imageView release];
     imageView = nil;
-    [startButton release];
-    startButton = nil;
+    [toolbar release];
+    toolbar = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -136,7 +141,6 @@
 
 - (IBAction) nextPuzzle:(id)sender
 {
-    NSLog([NSString stringWithFormat:@"Cunt: %d", [puzzles count]]);
     if (currentIndex+1 == [puzzles count])
         return;
     currentIndex++;

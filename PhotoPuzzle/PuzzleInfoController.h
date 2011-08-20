@@ -12,7 +12,7 @@
 
 @protocol AllPuzzlesDelegate;
 
-@interface PuzzleInfoController : UIViewController 
+@interface PuzzleInfoController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     id<AllPuzzlesDelegate> delegate;
     IBOutlet UIImageView *imageView;

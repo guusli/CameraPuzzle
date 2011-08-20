@@ -26,6 +26,11 @@
 
 - (void)dealloc
 {
+    [imageView release];
+    [nameLabel release];
+    [removeButton release];
+    [closeButton release];
+    
     [super dealloc];
 }
 
@@ -46,8 +51,8 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(20, 150, 280, 250) style:UITableViewStyleGrouped];
     tableView.delegate = self;
     tableView.dataSource = self;
-    //[tableView setBackgroundColor:[UIColor scrollViewTexturedBackgroundColor]];
     [self.view addSubview:tableView];
+    [tableView release];
     
     [nameLabel setText:[puzzle puzzleName]];
     [closeButton setBackgroundImage:[UIImage imageNamed:@"button.png"] forState:UIControlStateNormal];
@@ -70,8 +75,16 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    
+    [imageView release];
+    imageView = nil;
+    [nameLabel release];
+    nameLabel = nil;
+    [removeButton release];
+    removeButton = nil;
+    [closeButton release];
+    closeButton = nil;
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
